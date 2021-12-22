@@ -1,17 +1,21 @@
 import './App.css';
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Profile from "./components/profile";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profile/profile";
+import Dialogs from "./components/Dialogs/Dialogs"
 
 
 function App() {
-  return (
-    <div className="app-wrapper">
-      <Header/>
-      <Navbar/>
-      <Profile/>
-    </div>
-  );
+    return (
+        <div className="app-wrapper">
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                {/*<Profile/>*/}
+                <Dialogs/>
+            </div>
+        </div>
+    );
 }
 
 
