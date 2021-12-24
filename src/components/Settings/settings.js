@@ -1,4 +1,4 @@
-import classes from "./Settings.module.css";
+import classes from "./settings.module.css";
 
 
 function Settings() {
@@ -8,3 +8,6 @@ function Settings() {
         </div>
     )
 }
+
+
+export default Settings

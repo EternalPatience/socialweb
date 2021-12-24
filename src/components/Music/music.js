@@ -1,4 +1,4 @@
-import classes from "./Music.module.css";
+import classes from "./music.module.css";
 
 
 function Music() {
@@ -8,3 +8,6 @@ function Music() {
         </div>
     )
 }
+
+
+export default Music

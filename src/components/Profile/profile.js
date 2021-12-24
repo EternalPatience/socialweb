@@ -1,16 +1,14 @@
-import classes from "./profile.module.css";
-import MyPosts from "./MyPosts/MyPosts";
+import MyPosts from "./MyPosts/myPosts";
+import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 
-function Profile() {
+function Profile(props) {
+
+
+
     return (
         <div>
-            <div>
-                <img src="https://www.industrialempathy.com/img/remote/ZiClJf-640w.avif" alt="main wallpaper"/>
-            </div>
-            <div>
-                ava + description
-            </div>
-            <MyPosts/>
+            <ProfileInfo/>
+            <MyPosts posts={props.state.posts}/>
         </div>
     )
 }

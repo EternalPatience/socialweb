@@ -1,8 +1,31 @@
 .nav {
     grid-area: n;
     background-color: cadetblue;
+    padding: 20px;
+}
+.text {
+    grid-area: t;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+
+
+}
+.sidebarElements {
+    display: grid;
+    grid-template-areas:
+            't t t'
+            "s s s";
+    grid-auto-rows: 50px 1fr;
+    background-color: cadetblue;
 }
 
 .item {
-    color: blue;
+    color: white;
+    text-decoration: none;
+}
+
+.active {
+    color: gold;
+    text-decoration: none;
 }

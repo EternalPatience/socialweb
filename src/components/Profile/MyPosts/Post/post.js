@@ -1,4 +1,4 @@
-import classes from "./Post.module.css";
+import classes from "./post.module.css";
 
 
 function Post(props) {

@@ -1,0 +1,13 @@
+.item {
+    background-color: cadetblue;
+    padding: 20px;
+
+}
+
+.name {
+    color: white;
+}
+
+.avatar img{
+    width: 40px;
+}

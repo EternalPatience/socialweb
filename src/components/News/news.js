@@ -1,4 +1,4 @@
-import classes from "./News.module.css";
+import classes from "./news.module.css";
 
 
 function News() {
