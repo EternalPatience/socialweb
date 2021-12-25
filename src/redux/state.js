@@ -1,9 +1,12 @@
+import {reRenderEntireTree} from "../render";
+
 let state = {
     profilePage: {
         posts: [
         {id: 1, text: 'Hi, how are you?', likesCount: 12},
         {id: 2, text: 'It\'s my first post', likesCount: 23},
-    ]
+    ],
+        newPostText: "it-camasutra.com"
     },
     messagesPage: {
         dialogs: [
@@ -36,13 +39,27 @@ let state = {
                 avatar: 'https://cdn-icons-png.flaticon.com/512/146/146001.png'
             },
             {
-                name: 'Viktor',
+                name: 'Viktoria',
                 age: 47,
                 gender: 'm',
                 avatar: 'https://cdn-icons-png.flaticon.com/512/146/146023.png'
             },
         ]
     }
+}
+
+export let addPost = (postMessage) => {
+    let newPost  = {
+        id:3,
+        text: postMessage,
+        likesCount: 0
+    }
+    state.profilePage.posts.push(newPost)
+    reRenderEntireTree(state)
+}
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText
+    reRenderEntireTree(state)
 }
 
 export default state

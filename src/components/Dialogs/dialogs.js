@@ -1,9 +1,7 @@
 import classes from './dialogs.module.css'
 import DialogItem from "./DialogItem/dialogItem";
 import Message from "./Message/Message";
-
-
-
+import React from "react";
 
 
 function Dialogs(props) {
@@ -15,6 +13,12 @@ function Dialogs(props) {
         <Message message={message.message}/>
     )
 
+    let newMessageElement = React.createRef()
+    let sendMessage = () => {
+        let messageText = newMessageElement.current.value
+        alert(messageText)
+    }
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
@@ -22,8 +26,17 @@ function Dialogs(props) {
             </div>
             <div className={classes.messages}>
                 {messagesElements}
+                <div>
+                   <textarea ref={newMessageElement}>
+
+                   </textarea>
+                </div>
+                <div>
+                    <button onClick={sendMessage}>Send message</button>
+                </div>
             </div>
-        </div>)
+        </div>
+    )
 }
 
 export default Dialogs
