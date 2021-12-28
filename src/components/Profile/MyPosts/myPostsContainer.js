@@ -1,8 +1,5 @@
-import classes from "./myPosts.module.css";
-import Post from "./Post/post";
 import React from "react";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
-import myPosts from "./myPosts";
 import MyPosts from "./myPosts";
 
 function MyPostsContainer(props) {
@@ -15,7 +12,9 @@ function MyPostsContainer(props) {
         let action = updateNewPostTextActionCreator(text)
         props.dispatch(action)
     }
-    return (<MyPosts updateNewPostText={onPostChange} addPost={addPost}/>)
+    return (<MyPosts updateNewPostText={onPostChange}
+                     posts={props.posts}
+                     addPost={addPost}/>)
 
 }
 
