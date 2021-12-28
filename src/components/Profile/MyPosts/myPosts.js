@@ -3,6 +3,8 @@ import Post from "./Post/post";
 import React from "react";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 
+
+
 function MyPosts(props) {
 
     let postElements = props.posts.map(post =>
