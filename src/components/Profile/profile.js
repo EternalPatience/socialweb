@@ -1,13 +1,11 @@
 import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/myPostsContainer";
 
-function Profile(props) {
+function Profile() {
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer posts={props.profilePage.posts}
-                     dispatch={props.dispatch}
-                     newPostText={props.profilePage.newPostText}/>
+            <MyPostsContainer/>
         </div>
     )
 }
