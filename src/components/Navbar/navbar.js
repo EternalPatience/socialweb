@@ -7,8 +7,12 @@ import Sidebar from "../Sidebar/sidebar";
 
 function Navbar(props) {
 
-    let sidebarElements = props.state.friends.map(friend =>
-        <Sidebar name={friend.name} age={friend.id} avatar={friend.avatar} gender={friend.gender}/>)
+    let sidebarElements = props.sidebar.friends.map(friend =>
+        <Sidebar name={friend.name}
+                 age={friend.id}
+                 key={friend.id}
+                 avatar={friend.avatar}
+                 gender={friend.gender}/>)
 
     return (
             <nav className={classes.nav}>
