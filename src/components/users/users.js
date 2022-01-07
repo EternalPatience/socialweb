@@ -1,22 +1,22 @@
 import styles from './users.module.css'
+import React from "react";
 import axios from "axios";
 import userPhoto from '../users/images/anonimousAvatar.png'
 
 
-let Users = (props) => {
-    let getUsers = () => {
-        if (props.users.length === 0) {
-            axios.get('https://social-network.samuraijs.com/api/1.0/users')
-                .then(response => {
-                    props.setUsers(response.data.items)
-                })
-        }
+class Users extends React.Component {
+
+    componentDidMount() {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then(response => {
+                this.props.setUsers(response.data.items)
+            })
     }
 
-    return <div>
-        <button onClick={getUsers}>Get users</button>
-        {
-            props.users.map(user => <div key={user.id}>
+    render() {
+        return <div>
+            {
+                this.props.users.map(user => <div key={user.id}>
                 <span>
                     <div className={styles.usersPhoto}>
                         <img src={user.photos.small != null ? user.photos.small : userPhoto} alt=''/>
@@ -25,15 +25,15 @@ let Users = (props) => {
                         {
                             user.followed
                                 ? <button onClick={() => {
-                                    props.unfollow(user.id)
+                                    this.props.unfollow(user.id)
                                 }}>Unfollow</button>
                                 : <button onClick={() => {
-                                    props.follow(user.id)
+                                    this.props.follow(user.id)
                                 }}>Follow</button>
                         }
                     </div>
                 </span>
-                <span>
+                    <span>
                     <span>
                         <div>{user.name}</div>
                         <div>{user.status}</div>
@@ -43,10 +43,10 @@ let Users = (props) => {
                         <div>{"user.location.city"}</div>
                     </span>
                 </span>
-            </div>)
-        }
-    </div>
+                </div>)
+            }
+        </div>
+    }
 }
-
 
 export default Users
