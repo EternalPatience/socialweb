@@ -1,7 +1,11 @@
 import classes from "./profileinfo.module.css";
+import Preloader from "../../../common/preloader/preloader";
 
 
 function ProfileInfo(props) {
+    if (!props.profile) {
+        return <Preloader/>
+    }
     return (
         <div>
             <div>
@@ -9,7 +13,7 @@ function ProfileInfo(props) {
             </div>
             <div className={classes.descriptionBlock}>
                 <img src={props.profile.photos.large} alt='large'/>
-                ava + description
+                                ava + description
             </div>
         </div>
 )
