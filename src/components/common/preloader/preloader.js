@@ -3,11 +3,7 @@ import React from "react";
 
 let Preloader = () => {
     return (
-        <div className={classes.ldsSpinner}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div className={classes.ldsRoller}>
             <div></div>
             <div></div>
             <div></div>

@@ -7,7 +7,7 @@ import Settings from "./components/Settings/settings";
 import DialogsContainer from "./components/Dialogs/dialogsContainer";
 import NavbarContainer from "./components/Navbar/navbarContainer";
 import UsersContainer from "./components/Users/usersContainer";
-import ProfileContainer from "./components/Profile/profileContainer";
+import ProfileMatch from "./components/Profile/profileContainer";
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/dialogs" element={<DialogsContainer/>}/>
-                        <Route path="/profile" element={<ProfileContainer/>}/>
+                        <Route path="/profile/:userID" element={<ProfileMatch/>}/>
                         <Route path="/users" element={<UsersContainer/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>
