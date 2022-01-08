@@ -1,13 +1,13 @@
 import './App.css';
-import {Routes, Route} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header/header";
-import Profile from "./components/Profile/profile";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
 import DialogsContainer from "./components/Dialogs/dialogsContainer";
 import NavbarContainer from "./components/Navbar/navbarContainer";
-import UsersContainer from "./components/users/usersContainer";
+import UsersContainer from "./components/Users/usersContainer";
+import ProfileContainer from "./components/Profile/profileContainer";
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/dialogs" element={<DialogsContainer/>}/>
-                        <Route path="/profile" element={<Profile />}/>
+                        <Route path="/profile" element={<ProfileContainer/>}/>
                         <Route path="/users" element={<UsersContainer/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/music" element={<Music/>}/>

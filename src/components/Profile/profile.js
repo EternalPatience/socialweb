@@ -1,10 +1,10 @@
-import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
+import ProfileInfo from "./MyPosts/ProfileInfo/profileInfo";
 import MyPostsContainer from "./MyPosts/myPostsContainer";
 
-function Profile() {
+function Profile(props) {
     return (
         <div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
         </div>
     )

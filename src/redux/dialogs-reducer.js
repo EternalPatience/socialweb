@@ -24,8 +24,6 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
 
-    let stateCopy
-
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT: {
             return {
@@ -46,7 +44,7 @@ const dialogsReducer = (state = initialState, action) => {
 }
 
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text})
+export const addMessage = () => ({type: ADD_MESSAGE})
+export const updateNewMessageText = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text})
 
 export default dialogsReducer
