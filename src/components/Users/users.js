@@ -4,7 +4,7 @@ import styles from './users.module.css'
 import React from "react";
 import userPhoto from './/images/anonimousAvatar.png'
 import {NavLink} from "react-router-dom";
-import {followUser, subscribeAPI, unfollowUser} from "../../api/api";
+import {subscribeAPI} from "../../api/api";
 
 
 let Users = (props) => {
@@ -37,18 +37,23 @@ let Users = (props) => {
                     <div>
                         {
                             user.followed
-                                ? <button onClick={() => {
+                                ? <button disabled={props.followingProgressStatus.some(id => id === user.id)} onClick={() => {
+                                    props.toggleFollowingProgress(true, user.id)
                                     subscribeAPI.unfollowUser(user.id).then(data => {
-                                            if (data.resultCode === 0)
+                                            if (data.resultCode === 0) {
                                                 props.unfollow(user.id)
-                                        })
+                                            }
+                                            props.toggleFollowingProgress(false, user.id)
+                                    })
                                 }}>Unfollow</button>
-                                : <button onClick={() => {
+                                : <button disabled={props.followingProgressStatus.some(id => id === user.id)} onClick={() => {
+                                    props.toggleFollowingProgress(true, user.id)
                                     subscribeAPI.followUser(user.id).then(data => {
                                             if (data.resultCode === 0) {
                                                 props.follow(user.id)
                                             }
-                                        })
+                                            props.toggleFollowingProgress(false, user.id)
+                                    })
                                 }}>Follow</button>
                         }
                     </div>
