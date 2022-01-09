@@ -4,6 +4,7 @@ import styles from './users.module.css'
 import React from "react";
 import userPhoto from './/images/anonimousAvatar.png'
 import {NavLink} from "react-router-dom";
+import {followUser, subscribeAPI, unfollowUser} from "../../api/api";
 
 
 let Users = (props) => {
@@ -37,10 +38,17 @@ let Users = (props) => {
                         {
                             user.followed
                                 ? <button onClick={() => {
-                                    props.unfollow(user.id)
+                                    subscribeAPI.unfollowUser(user.id).then(data => {
+                                            if (data.resultCode === 0)
+                                                props.unfollow(user.id)
+                                        })
                                 }}>Unfollow</button>
                                 : <button onClick={() => {
-                                   props.follow(user.id)
+                                    subscribeAPI.followUser(user.id).then(data => {
+                                            if (data.resultCode === 0) {
+                                                props.follow(user.id)
+                                            }
+                                        })
                                 }}>Follow</button>
                         }
                     </div>
