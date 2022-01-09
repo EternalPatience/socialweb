@@ -13,7 +13,8 @@ function ProfileInfo(props) {
             </div>
             <div className={classes.descriptionBlock}>
                 <img src={props.profile.photos.large} alt='large'/>
-                                ava + description
+                <div>{props.profile.fullName}</div>
+                <div>{props.profile.aboutMe}</div>
             </div>
         </div>
 )
