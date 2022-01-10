@@ -4,38 +4,23 @@ import {connect} from "react-redux";
 import {
     follow,
     setCurrentPage,
-    setTotalUsersCount,
-    setUsers, toggleFollowingProgress,
-    toggleIsFetching,
-    unfollow
+    toggleFollowingProgress,
+    unfollow,
+    getUsers,
+    pageChange
 } from "../../redux/users-reducer";
 import React from "react";
 import Users from "./users";
 import Preloader from "../common/preloader/preloader";
-import {usersAPI} from "../../api/api";
 
 
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true)
-        // noinspection JSUnresolvedVariable
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.toggleIsFetching(false)
-            // noinspection JSUnresolvedFunction
-            this.props.setUsers(data.items)
-            // noinspection JSUnresolvedFunction,JSUnresolvedVariable
-            this.props.setTotalUsersCount(data.totalCount)
-        })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.toggleIsFetching(true)
-        this.props.setCurrentPage(pageNumber)
-        usersAPI.getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(data.items)
-            })
+        this.props.pageChange(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -51,7 +36,6 @@ class UsersAPIComponent extends React.Component {
                    follow={this.props.follow}
                    users={this.props.users}
                    followingProgressStatus={this.props.followingInProgress}
-                   toggleFollowingProgress={this.props.toggleFollowingProgress}
 
             />
         </>
@@ -76,9 +60,8 @@ export default connect(
     {
         follow,
         unfollow,
-        setUsers,
         setCurrentPage,
-        setTotalUsersCount,
-        toggleIsFetching,
-        toggleFollowingProgress
+        toggleFollowingProgress,
+        getUsers,
+        pageChange,
     })(UsersAPIComponent)

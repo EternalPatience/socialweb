@@ -9,20 +9,16 @@ let mapStateToProps = (state) => {
 
     return {
         messagesPage: state.messagesPage,
+        isAuth: state.auth.isAuth,
     }
 }
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        updateNewMessageText: (text) => {
-           dispatch(updateNewMessageTextActionCreator(text))
-        },
-        sendMessage: () => {
-            dispatch(addMessageActionCreator())
-        },
-    }
-}*/
 
-const DialogsContainer = connect(mapStateToProps, {addMessage, updateNewMessageText})(Dialogs)
+
+const DialogsContainer = connect(mapStateToProps,
+    {
+        addMessage,
+        updateNewMessageText
+    })(Dialogs)
 
 
 export default DialogsContainer

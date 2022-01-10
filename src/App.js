@@ -8,6 +8,7 @@ import NavbarContainer from "./components/Navbar/navbarContainer";
 import UsersContainer from "./components/Users/usersContainer";
 import ProfileMatch from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/headerContainer";
+import LoginPage from "./components/Login/login";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/news" element={<News/>}/>
                     <Route path="/music" element={<Music/>}/>
                     <Route path="/settings" element={<Settings/>}/>
+                    <Route path="/login" element={<LoginPage/>}/>
                 </Routes>
             </div>
         </div>

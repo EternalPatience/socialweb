@@ -4,7 +4,7 @@ import styles from './users.module.css'
 import React from "react";
 import userPhoto from './/images/anonimousAvatar.png'
 import {NavLink} from "react-router-dom";
-import {subscribeAPI} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 
 let Users = (props) => {
@@ -37,23 +37,13 @@ let Users = (props) => {
                     <div>
                         {
                             user.followed
-                                ? <button disabled={props.followingProgressStatus.some(id => id === user.id)} onClick={() => {
-                                    props.toggleFollowingProgress(true, user.id)
-                                    subscribeAPI.unfollowUser(user.id).then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.unfollow(user.id)
-                                            }
-                                            props.toggleFollowingProgress(false, user.id)
-                                    })
+                                ? <button disabled={props.followingProgressStatus.some(id => id === user.id)}
+                                          onClick={() => {
+                                   props.unfollow(user.id)
                                 }}>Unfollow</button>
-                                : <button disabled={props.followingProgressStatus.some(id => id === user.id)} onClick={() => {
-                                    props.toggleFollowingProgress(true, user.id)
-                                    subscribeAPI.followUser(user.id).then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.follow(user.id)
-                                            }
-                                            props.toggleFollowingProgress(false, user.id)
-                                    })
+                                : <button disabled={props.followingProgressStatus.some(id => id === user.id)}
+                                          onClick={() => {
+                                    props.follow(user.id)
                                 }}>Follow</button>
                         }
                     </div>
