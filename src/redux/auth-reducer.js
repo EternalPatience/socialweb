@@ -1,7 +1,8 @@
 import {authAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
+
 
 const SET_USER_DATA = 'SET_USER_DATA';
-const GET_AUTH = 'GET_AUTH'
 
 
 let initialState = {
@@ -30,7 +31,7 @@ export const setAuthUserData = (userID, login, email, isAuth) => (
     {type: SET_USER_DATA, payload: {userID, login, email, isAuth}})
 
 
-//Thunks
+//ThunksCreators
 export const authChecker = () => {
     return (dispatch) => {
         authAPI.checkAuth().then(data => {
@@ -48,6 +49,9 @@ export const login = (email, password, rememberMe, captcha) => {
         authAPI.login(email, password, rememberMe, captcha).then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(setAuthUserData())
+            } else {
+                let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
+                dispatch(stopSubmit('login', {_error: message}))
             }
         })
     }

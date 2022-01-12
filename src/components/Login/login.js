@@ -4,6 +4,7 @@ import {login, logout} from "../../redux/auth-reducer";
 import {FormControl} from "../common/formControls/formControls";
 import {required} from "../../utilities/validators/validators";
 import {Navigate} from "react-router-dom";
+import classes from '../common/formControls/formControls.module.css'
 
 const Login = (props) => {
     const onSubmit = (formData) => {
@@ -52,6 +53,9 @@ const LoginForm = (props) => {
                            component={Input}
                            name={'rememberMe'}/> remember me
                 </div>
+                {props.error && <div className={classes.summaryError}>
+                    {props.error}
+                </div>}
                 <div>
                     <button>Login</button>
                 </div>
