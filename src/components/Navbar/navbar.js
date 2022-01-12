@@ -9,7 +9,7 @@ function Navbar(props) {
 
     let sidebarElements = props.sidebar.friends.map(friend =>
         <Sidebar name={friend.name}
-                 age={friend.id}
+                 age={friend.age}
                  key={friend.id}
                  avatar={friend.avatar}
                  gender={friend.gender}/>)

@@ -17,10 +17,12 @@ let Users = (props) => {
     return <div>
         <div className={styles.pageSelector}>
             {pages.map(page => {
-                return <span className={props.currentPage === page ? styles.selectedPage : undefined}
-                             onClick={(e) => {
-                                 props.onPageChanged(page)
-                             }}>{page}
+                return <span
+                    key={page}
+                    className={props.currentPage === page ? styles.selectedPage : undefined}
+                    onClick={(e) => {
+                        props.onPageChanged(page)
+                    }}>{page}
                     </span>
             })}
         </div>

@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -11,7 +10,6 @@ let initialState = {
         {id: 1, text: 'Hi, how are you?', likesCount: 12},
         {id: 2, text: 'It\'s my first post', likesCount: 23},
     ],
-    newPostText: "it-kamasutra.com",
     profile: null,
     status: "",
 }
@@ -21,20 +19,12 @@ const profileReducer = (state=initialState, action) => {
         case ADD_POST: {
             let newPost = {
                 id: 3,
-                text: state.newPostText,
+                text: action.newPostText,
                 likesCount: 0
             }
             return {
                 ...state,
                 posts: [...state.posts, newPost],
-                newPostText: '',
-
-            }
-        }
-        case UPDATE_NEW_POST_TEXT: {
-           return {
-                ...state,
-                newPostText: action.newText
             }
         }
         case SET_USER_PROFILE: {
@@ -56,12 +46,12 @@ const profileReducer = (state=initialState, action) => {
     }
 }
 
-export const addPost = () => ({type: ADD_POST})
-export const updateNewPostText= (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+//ActionCreators
+export const addPost = (newPostText) => ({type: ADD_POST, newPostText})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status) => ({type: SET_STATUS, status})
 
-
+//Thunks
 export const getProfile = (userID) => {
     return (dispatch) => {
         usersAPI.getProfile(userID).then(data => {
@@ -80,7 +70,7 @@ export const getStatus = (userID) => {
 
 export const updateStatus = (status) => {
     return (dispatch) => {
-        profileAPI.updataStatus(status).then(response => {
+        profileAPI.updateStatus(status).then(response => {
             if (response.data.resultCode ===0) {
                 dispatch(setStatus(status))
             }
