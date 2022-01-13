@@ -12,6 +12,7 @@ import LoginPage from "./components/Login/login";
 import {Component} from "react";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
+import Preloader from "./components/common/preloader/preloader";
 
 
 class App extends Component {
@@ -21,6 +22,11 @@ class App extends Component {
     }
 
     render() {
+
+        if (!this.props.initialized) {
+            return (
+                <Preloader/>
+            )}
 
         return (
             <div className="app-wrapper">
