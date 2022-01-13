@@ -32,20 +32,19 @@ export const setAuthUserData = (userID, login, email, isAuth) => (
 
 
 //ThunksCreators
-export const authChecker = () => {
-    return (dispatch) => {
-        authAPI.checkAuth().then(data => {
+export const authChecker = () =>
+     (dispatch) => {
+        return authAPI.checkAuth().then(data => {
             if (data.resultCode === 0) {
                 let {email, id, login} = data.data
                 dispatch(setAuthUserData(email, id, login, true))
             }
         })
     }
-}
 
 
-export const login = (email, password, rememberMe, captcha) => {
-    return (dispatch) => {
+export const login = (email, password, rememberMe, captcha) =>
+     (dispatch) => {
         authAPI.login(email, password, rememberMe, captcha).then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(setAuthUserData())
@@ -55,7 +54,7 @@ export const login = (email, password, rememberMe, captcha) => {
             }
         })
     }
-}
+
 
 
 export const logout = () => {
