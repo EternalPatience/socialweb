@@ -28,15 +28,15 @@ export const initializedSuccess = () => (
 
 
 //ThunksCreators
-export const initializeApp = () => {
-    return (dispatch) => {
+export const initializeApp = () =>
+    (dispatch) => {
         let promise = dispatch(authChecker())
         Promise.all([promise])
             .then(() => {
                 dispatch(initializedSuccess())
         })
     }
-}
+
 
 
 export default appReducer

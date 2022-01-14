@@ -24,12 +24,8 @@ export const usersAPI = {
             `follow/${id}`)
             .then(response => response.data)
     },
-    getProfile(id) {
-        console.warn('Obsolete method, Please, use profileAPI obj')
-        return profileAPI.getProfile(id)
-    }
-
 }
+
 
 export const authAPI = {
     checkAuth() {
@@ -44,7 +40,7 @@ export const authAPI = {
     },
     logout() {
         return instance.delete(`auth/login`)
-    }
+    },
 }
 
 

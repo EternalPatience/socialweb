@@ -6,8 +6,7 @@ import {maxLengthCreator, required} from "../../../utilities/validators/validato
 import {FormControl} from "../../common/formControls/formControls";
 
 
-function MyPosts(props) {
-
+const MyPosts = React.memo(props => {
     let postElements = props.posts.map(post =>
         <Post message={post.text} likesCount={post.likesCount} key={post.id}/>
     )
@@ -16,19 +15,19 @@ function MyPosts(props) {
         props.addPost(values.newPostText)
     }
 
-
     return (
-            <div className={classes.postsBlock}>
-                <h3>My posts</h3>
-                <AddPostFormRedux onSubmit={onAddPost}/>
-                <div>
-                    <div className={classes.posts}>
-                        {postElements}
-                    </div>
+
+        <div className={classes.postsBlock}>
+            <h3>My posts</h3>
+            <AddPostFormRedux onSubmit={onAddPost}/>
+            <div>
+                <div className={classes.posts}>
+                    {postElements}
                 </div>
             </div>
+        </div>
     )
-}
+})
 
 
 const Textarea = FormControl("textarea")

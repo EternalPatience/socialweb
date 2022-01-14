@@ -99,8 +99,8 @@ export const getUsers = (currentPage, pageSize) => {
 }
 
 
-export const pageChange = (pageNumber, pageSize) => {
-    return (dispatch) => {
+export const pageChange = (pageNumber, pageSize) =>
+    (dispatch) => {
         dispatch(toggleIsFetching(true))
         dispatch(setCurrentPage(pageNumber))
         usersAPI.getUsers(pageNumber, pageSize)
@@ -109,11 +109,11 @@ export const pageChange = (pageNumber, pageSize) => {
                 dispatch(setUsers(data.items))
             })
     }
-}
 
 
-export const follow = (userID) => {
-    return (dispatch) => {
+
+export const follow = (userID) =>
+    (dispatch) => {
        dispatch(toggleFollowingProgress(true, userID))
         usersAPI.followUser(userID).then(data => {
             if (data.resultCode === 0) {
@@ -122,11 +122,11 @@ export const follow = (userID) => {
             dispatch(toggleFollowingProgress(false, userID))
         })
     }
-}
 
 
-export const unfollow = (userID) => {
-    return (dispatch) => {
+
+export const unfollow = (userID) =>
+    (dispatch) => {
         dispatch(toggleFollowingProgress(true, userID))
         usersAPI.unfollowUser(userID).then(data => {
             if (data.resultCode === 0) {
@@ -135,7 +135,6 @@ export const unfollow = (userID) => {
             dispatch(toggleFollowingProgress(false, userID))
         })
     }
-}
 
 
 export default usersReducer
