@@ -1,5 +1,5 @@
 import './App.css';
-import {Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
@@ -13,6 +13,8 @@ import {Component} from "react";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/preloader/preloader";
+import store from "./redux/redux-store";
+import Provider from "react-redux/lib/components/Provider";
 
 
 class App extends Component {
