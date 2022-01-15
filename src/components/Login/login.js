@@ -6,29 +6,8 @@ import {required} from "../../utilities/validators/validators";
 import {Navigate} from "react-router-dom";
 import classes from '../common/formControls/formControls.module.css'
 
-const Login = ({login, isAuth}) => {
-    const onSubmit = (formData) => {
-        login(
-            formData.email,
-            formData.password,
-            formData.rememberMe,
-            formData.captcha
-        )
-    }
-
-    if (isAuth) {
-        return <Navigate to={'/profile/21697'}/>
-    }
-
-    return (
-        <div>
-           <LoginReduxForm onSubmit={onSubmit}/>
-        </div>
-    )
-}
-
-
 const Input = FormControl("Input")
+
 
 const LoginForm = ({handleSubmit, error}) => {
     return (
@@ -64,10 +43,30 @@ const LoginForm = ({handleSubmit, error}) => {
     )
 }
 
-
-const LoginReduxForm = reduxForm ({
+const LoginReduxForm = reduxForm({
     form: 'login'
 })(LoginForm)
+
+
+const Login = ({login, isAuth}) => {
+    const onSubmit = (formData) => {
+        login(
+            formData.email,
+            formData.password,
+            formData.rememberMe,
+            formData.captcha
+        )
+    }
+    if (isAuth) {
+        return <Navigate replace to={'/profile/21697'}/>
+    }
+
+    return (
+        <div>
+            <LoginReduxForm onSubmit={onSubmit}/>
+        </div>
+    )
+}
 
 
 const mapStateToProps = (state) => ({

@@ -5,11 +5,3 @@
 
 }
 
-.pageSelector {
-    cursor: pointer;
-}
-
-.selectedPage {
-    font-weight: bold;
-    padding: 5px;
-}

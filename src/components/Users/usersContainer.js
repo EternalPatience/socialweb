@@ -65,7 +65,7 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps,{
+    connect(mapStateToProps, {
         follow,
         unfollow,
         setCurrentPage,
