@@ -34,9 +34,8 @@ export const initializeApp = () =>
         Promise.all([promise])
             .then(() => {
                 dispatch(initializedSuccess())
-        })
+            })
     }
-
 
 
 export default appReducer

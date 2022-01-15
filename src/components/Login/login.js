@@ -6,9 +6,9 @@ import {required} from "../../utilities/validators/validators";
 import {Navigate} from "react-router-dom";
 import classes from '../common/formControls/formControls.module.css'
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
     const onSubmit = (formData) => {
-        props.login(
+        login(
             formData.email,
             formData.password,
             formData.rememberMe,
@@ -16,7 +16,7 @@ const Login = (props) => {
         )
     }
 
-    if (props.isAuth) {
+    if (isAuth) {
         return <Navigate to={'/profile/21697'}/>
     }
 
@@ -30,11 +30,11 @@ const Login = (props) => {
 
 const Input = FormControl("Input")
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
         <div>
             <h1>Login</h1>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <Field placeholder={'Email'}
                            validate={[required]}
@@ -53,8 +53,8 @@ const LoginForm = (props) => {
                            component={Input}
                            name={'rememberMe'}/> remember me
                 </div>
-                {props.error && <div className={classes.summaryError}>
-                    {props.error}
+                {error && <div className={classes.summaryError}>
+                    {error}
                 </div>}
                 <div>
                     <button>Login</button>
