@@ -4,7 +4,6 @@ import classes from "../common/formControls/formControls.module.css";
 
 
 const Input = FormControl("Input")
-const Textarea = FormControl("Textarea")
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
     return (
@@ -26,12 +25,12 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
             <b>My skills:</b>
             <Field placeholder={'My skills'}
                    validate={[]}
-                   component={Textarea}
+                   component={Input}
                    name={'lookingForAJobDescription'}/>
             <b>About me:</b>
             <Field placeholder={'About me'}
                    validate={[]}
-                   component={Textarea}
+                   component={Input}
                    name={'aboutMe'}/>
             <div>
                 <b>Contacts: </b> {Object.keys(profile.contacts).map(key => {

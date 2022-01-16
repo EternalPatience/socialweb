@@ -1,6 +1,6 @@
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
-import {login, logout} from "../../redux/auth-reducer";
+import {getCaptcha, login, logout} from "../../redux/auth-reducer";
 import {FormControl} from "../common/formControls/formControls";
 import {required} from "../../utilities/validators/validators";
 import {Navigate} from "react-router-dom";
@@ -9,7 +9,7 @@ import classes from '../common/formControls/formControls.module.css'
 const Input = FormControl("Input")
 
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaURL}) => {
     return (
         <div>
             <h1>Login</h1>
@@ -32,6 +32,11 @@ const LoginForm = ({handleSubmit, error}) => {
                            component={Input}
                            name={'rememberMe'}/> remember me
                 </div>
+                {captchaURL && <img src={captchaURL}/>}
+                {captchaURL && <Field placeholder={'captcha'}
+                                      validate={[required]}
+                                      component={Input}
+                                      name={'captcha'}/>}
                 {error && <div className={classes.summaryError}>
                     {error}
                 </div>}
@@ -48,7 +53,7 @@ const LoginReduxForm = reduxForm({
 })(LoginForm)
 
 
-const Login = ({login, isAuth}) => {
+const Login = ({login, isAuth, captchaURL, getCaptcha}) => {
     const onSubmit = (formData) => {
         login(
             formData.email,
@@ -63,14 +68,15 @@ const Login = ({login, isAuth}) => {
 
     return (
         <div>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaURL={captchaURL} getCaptcha={getCaptcha}/>
         </div>
     )
 }
 
 
 const mapStateToProps = (state) => ({
+    captchaURL: state.auth.captchaURL,
     isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps, {logout, login})(Login)
+export default connect(mapStateToProps, {logout, login, getCaptcha})(Login)
