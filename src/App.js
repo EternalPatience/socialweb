@@ -1,20 +1,23 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import News from "./components/News/news";
-import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
-import DialogsContainer from "./components/Dialogs/dialogsContainer";
 import NavbarContainer from "./components/Navbar/navbarContainer";
-import UsersContainer from "./components/Users/usersContainer";
-import ProfileMatch from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/headerContainer";
 import LoginPage from "./components/Login/login";
-import React, {Component} from "react";
+import React, {Component, Suspense} from "react";
 import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/preloader/preloader";
 import {compose} from "redux";
 import store from "./redux/redux-store";
+import GuestLayout from "./components/Profile/guestComponent";
+
+//React.lazy
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/dialogsContainer"));
+const ProfileMatch = React.lazy(() => import("./components/Profile/profileContainer"));
+const UsersContainer = React.lazy(() => import("./components/Users/usersContainer"));
+const News = React.lazy(() => import("./components/News/news"));
+const Music = React.lazy(() => import("./components/Music/music"));
 
 
 class App extends Component {
@@ -36,15 +39,18 @@ class App extends Component {
                 <HeaderContainer/>
                 <NavbarContainer/>
                 <div className="app-wrapper-content">
-                    <Routes>
-                        <Route path="/dialogs" element={<DialogsContainer/>}/>
-                        <Route path="/profile/:userID" element={<ProfileMatch/>}/>
-                        <Route path="/users" element={<UsersContainer/>}/>
-                        <Route path="/news" element={<News/>}/>
-                        <Route path="/music" element={<Music/>}/>
-                        <Route path="/settings" element={<Settings/>}/>
-                        <Route path="/login" element={<LoginPage/>}/>
-                    </Routes>
+                    <Suspense fallback={<Preloader/>}>
+                        <Routes>
+                            <Route path="/dialogs" element={<DialogsContainer/>}/>
+                            <Route path="/profile" element={<GuestLayout/>}/>
+                            <Route path="/profile/:userID" element={<ProfileMatch/>}/>
+                            <Route path="/users" element={<UsersContainer/>}/>
+                            <Route path="/news" element={<News/>}/>
+                            <Route path="/music" element={<Music/>}/>
+                            <Route path="/settings" element={<Settings/>}/>
+                            <Route path="/login" element={<LoginPage/>}/>
+                        </Routes>
+                    </Suspense>
                 </div>
             </div>
         );
@@ -56,7 +62,7 @@ const mapStateToProps = (state) => ({
 })
 
 
-const SocialWeb = (props) => {
+const SocialWeb = () => {
     return <BrowserRouter>
         <React.StrictMode>
             <Provider store={store}>
