@@ -13,8 +13,8 @@ export const getPageSize = (state) => {
     return state.usersPage.pageSize
 }
 
-export const getTotalUsersCount = (state) => {
-    return state.usersPage.totalUsersCount
+export const getTotalItemsCount = (state) => {
+    return state.usersPage.totalItemsCount
 }
 
 export const getCurrentPage = (state) => {
@@ -24,6 +24,9 @@ export const getFollowingInProgress = (state) => {
     return state.usersPage.followingInProgress
 }
 
+export const getPartitionSize = (state) => {
+    return state.usersPage.partitionSize
+}
 
 // selectors with dependencies
 export const requestUsers = createSelector(requestUsersSelector, (users) => {

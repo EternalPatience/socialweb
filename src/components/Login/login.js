@@ -58,7 +58,7 @@ const Login = ({login, isAuth}) => {
         )
     }
     if (isAuth) {
-        return <Navigate replace to={'/profile/21697'}/>
+        return <Navigate to={'/profile/21697'}/>
     }
 
     return (

@@ -19,7 +19,8 @@ import {
     getFollowingInProgress,
     getIsFetching,
     getPageSize,
-    getTotalUsersCount, requestUsers
+    getPartitionSize,
+    getTotalItemsCount, requestUsers
 } from "../../redux/user-selectors";
 
 
@@ -37,8 +38,9 @@ class UsersAPIComponent extends React.Component {
         // noinspection JSUnresolvedVariable
         return <>
             {this.props.isFetching ? <Preloader/> : null}
-            <Users totalUsersCount={this.props.totalUsersCount}
+            <Users totalItemsCount={this.props.totalItemsCount}
                    pageSize={this.props.pageSize}
+                   partitionSize={this.props.partitionSize}
                    currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}
                    unfollow={this.props.unfollow}
@@ -56,10 +58,11 @@ let mapStateToProps = (state) => {
     return {
         users: requestUsers(state),
         pageSize: getPageSize(state),
-        totalUsersCount: getTotalUsersCount(state),
+        totalItemsCount: getTotalItemsCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
+        partitionSize: getPartitionSize(state)
     }
 }
 

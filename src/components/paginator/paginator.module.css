@@ -1,8 +1,16 @@
-.pageSelector {
+.paginator {
+    margin-top: 10px;
     cursor: pointer;
 }
 
-.selectedPage {
-    font-weight: bold;
+.pageNumber {
     padding: 5px;
+    border: 1px solid grey;
 }
+
+.selectedPage {
+    border: 2px solid black;
+    padding: 5px;
+    font-weight: bold;
+}
+

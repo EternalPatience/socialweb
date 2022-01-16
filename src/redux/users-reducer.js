@@ -5,15 +5,15 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
-const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
+const SET_TOTAL_ITEMS_COUNT = "SET_TOTAL_ITEMS_COUNT"
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 const TOGGlE_IS_FOLLOWING_PROGRESS = "TOGGlE_IS_FOLLOWING_PROGRESS"
 
 
 let initialState = {
     users: [],
-    pageSize: 5,
-    totalUsersCount: 0,
+    pageSize: 10,
+    totalItemsCount: 0,
     currentPage: 1,
     isFetching: false,
     followingInProgress: [],
@@ -47,10 +47,10 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 currentPage: action.currentPage
             }
-        case SET_TOTAL_USERS_COUNT:
+        case SET_TOTAL_ITEMS_COUNT:
             return {
                 ...state,
-                totalUsersCount: action.totalUsersCount
+                totalItemsCount: action.totalItemsCount
             }
         case TOGGLE_IS_FETCHING:
             return {
@@ -76,7 +76,7 @@ export const followSuccess = (userID) => ({type: FOLLOW, userID})
 export const unfollowSuccess = (userID) => ({type: UNFOLLOW, userID})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
+export const setTotalItemsCount = (totalItemsCount) => ({type: SET_TOTAL_ITEMS_COUNT, totalItemsCount})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleFollowingProgress = (followingInProgress, userID) => ({
     type: TOGGlE_IS_FOLLOWING_PROGRESS,
@@ -92,7 +92,7 @@ export const getUsers = (currentPage, pageSize) =>
         dispatch(toggleIsFetching(false))
         dispatch(setUsers(data.items))
         // noinspection JSUnresolvedFunction,JSUnresolvedVariable
-        dispatch(setTotalUsersCount(data.totalCount))
+        dispatch(setTotalItemsCount(data.totalCount))
     }
 
 

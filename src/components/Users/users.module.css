@@ -1,7 +1,10 @@
-.usersPhoto img{
+.usersPhoto img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+}
 
+.usersPhoto {
+    margin-top: 15px;
 }
 

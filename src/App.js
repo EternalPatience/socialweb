@@ -1,5 +1,5 @@
 import './App.css';
-import {Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import News from "./components/News/news";
 import Music from "./components/Music/music";
 import Settings from "./components/Settings/settings";
@@ -9,10 +9,12 @@ import UsersContainer from "./components/Users/usersContainer";
 import ProfileMatch from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/headerContainer";
 import LoginPage from "./components/Login/login";
-import {Component} from "react";
-import {connect} from "react-redux";
+import React, {Component} from "react";
+import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/preloader/preloader";
+import {compose} from "redux";
+import store from "./redux/redux-store";
 
 
 class App extends Component {
@@ -53,6 +55,17 @@ const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 })
 
-export default connect(mapStateToProps, {initializeApp})(App)
 
+const SocialWeb = (props) => {
+    return <BrowserRouter>
+        <React.StrictMode>
+            <Provider store={store}>
+                <AppContainer />
+            </Provider>
+        </React.StrictMode>
+    </BrowserRouter>
+}
 
+let AppContainer = compose(connect(mapStateToProps, {initializeApp}))(App)
+
+export default SocialWeb
