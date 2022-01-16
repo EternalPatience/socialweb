@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 let instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     withCredentials: true,
@@ -57,4 +56,12 @@ export const profileAPI = {
     updateStatus(status) {
         return instance.put(`profile/status`, {status: status})
     },
+    saveImage(image) {
+        let formData = new FormData()
+        formData.append('image', image)
+        return instance.put(`profile/photo`, formData)
+    },
+    saveProfile(profileData) {
+        return instance.put(`/profile`, profileData)
+    }
 }

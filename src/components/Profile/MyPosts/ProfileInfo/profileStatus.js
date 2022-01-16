@@ -28,6 +28,7 @@ const ProfileStatus =(props) => {
         <div>
             {!editMode &&
             <div>
+                <b>Status: </b>
                 <span onDoubleClick={activateEditMode}>
                     {props.status || "Double click to add new post text"}
                 </span>
