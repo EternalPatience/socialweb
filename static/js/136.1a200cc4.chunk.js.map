@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/136.1a200cc4.chunk.js","mappings":"mKAYA,MATA,WACI,OACI","sources":["components/News/news.js"],"sourcesContent":["import classes from \"./news.module.css\";\n\n\nfunction News() {\n    return (\n        <div>\n            News\n        </div>\n    )\n}\n\n\nexport default News"],"names":[],"sourceRoot":""}

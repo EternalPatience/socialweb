@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/socialweb/static/css/main.148e2264.css",
+    "main.js": "/socialweb/static/js/main.d34bc9e0.js",
+    "static/css/208.fe836f64.chunk.css": "/socialweb/static/css/208.fe836f64.chunk.css",
+    "static/js/208.af6aca13.chunk.js": "/socialweb/static/js/208.af6aca13.chunk.js",
+    "static/css/43.ab8f64cf.chunk.css": "/socialweb/static/css/43.ab8f64cf.chunk.css",
+    "static/js/43.06e92073.chunk.js": "/socialweb/static/js/43.06e92073.chunk.js",
+    "static/css/505.bbc3bc2f.chunk.css": "/socialweb/static/css/505.bbc3bc2f.chunk.css",
+    "static/js/505.c7066e83.chunk.js": "/socialweb/static/js/505.c7066e83.chunk.js",
+    "static/css/136.31d6cfe0.chunk.css": "/socialweb/static/css/136.31d6cfe0.chunk.css",
+    "static/js/136.1a200cc4.chunk.js": "/socialweb/static/js/136.1a200cc4.chunk.js",
+    "static/css/596.31d6cfe0.chunk.css": "/socialweb/static/css/596.31d6cfe0.chunk.css",
+    "static/js/596.617cedff.chunk.js": "/socialweb/static/js/596.617cedff.chunk.js",
+    "static/js/787.52f0267e.chunk.js": "/socialweb/static/js/787.52f0267e.chunk.js",
+    "static/media/anonimousAvatar.png": "/socialweb/static/media/anonimousAvatar.6f85a7e905c616d68dec.png",
+    "index.html": "/socialweb/index.html",
+    "main.148e2264.css.map": "/socialweb/static/css/main.148e2264.css.map",
+    "main.d34bc9e0.js.map": "/socialweb/static/js/main.d34bc9e0.js.map",
+    "208.fe836f64.chunk.css.map": "/socialweb/static/css/208.fe836f64.chunk.css.map",
+    "208.af6aca13.chunk.js.map": "/socialweb/static/js/208.af6aca13.chunk.js.map",
+    "43.ab8f64cf.chunk.css.map": "/socialweb/static/css/43.ab8f64cf.chunk.css.map",
+    "43.06e92073.chunk.js.map": "/socialweb/static/js/43.06e92073.chunk.js.map",
+    "505.bbc3bc2f.chunk.css.map": "/socialweb/static/css/505.bbc3bc2f.chunk.css.map",
+    "505.c7066e83.chunk.js.map": "/socialweb/static/js/505.c7066e83.chunk.js.map",
+    "136.1a200cc4.chunk.js.map": "/socialweb/static/js/136.1a200cc4.chunk.js.map",
+    "596.617cedff.chunk.js.map": "/socialweb/static/js/596.617cedff.chunk.js.map",
+    "787.52f0267e.chunk.js.map": "/socialweb/static/js/787.52f0267e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.148e2264.css",
+    "static/js/main.d34bc9e0.js"
+  ]
+}
