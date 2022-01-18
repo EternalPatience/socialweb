@@ -6,7 +6,6 @@ import Sidebar from "../Sidebar/sidebar";
 
 
 function Navbar(props) {
-
     let sidebarElements = props.sidebar.friends.map(friend =>
         <Sidebar name={friend.name}
                  age={friend.age}
@@ -17,7 +16,7 @@ function Navbar(props) {
     return (
             <nav className={classes.nav}>
                 <div>
-                    <NavLink to='/profile/' className={navData => navData.isActive ? classes.active : classes.item}>Profile</NavLink>
+                    <NavLink to={`/profile/${props.login}`} className={navData => navData.isActive ? classes.active : classes.item}>Profile</NavLink>
                 </div>
                 <div>
                     <NavLink to='/dialogs' className={navData => navData.isActive ? classes.active : classes.item}>Messages</NavLink>

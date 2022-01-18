@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Settings from "./components/Settings/settings";
 import NavbarContainer from "./components/Navbar/navbarContainer";
 import HeaderContainer from "./components/Header/headerContainer";
@@ -42,13 +42,13 @@ class App extends Component {
                     <Suspense fallback={<Preloader/>}>
                         <Routes>
                             <Route path="/dialogs" element={<DialogsContainer/>}/>
-                            <Route path="/profile" element={<GuestLayout/>}/>
                             <Route path="/profile/:userID" element={<ProfileMatch/>}/>
                             <Route path="/users" element={<UsersContainer/>}/>
                             <Route path="/news" element={<News/>}/>
                             <Route path="/music" element={<Music/>}/>
                             <Route path="/settings" element={<Settings/>}/>
                             <Route path="/login" element={<LoginPage/>}/>
+                            <Route path="*" element={<div>404 NOT FOUND</div>}/>
                         </Routes>
                     </Suspense>
                 </div>

@@ -9,6 +9,7 @@ function ProfileInfo(props) {
 
     let [editMode, setEditMode] = useState(false)
 
+
     const onImageLoad = (e) => {
         if (e.target.files.length) {
             props.saveImage(e.target.files[0])
@@ -25,9 +26,10 @@ function ProfileInfo(props) {
         return <Preloader/>
     }
 
+
     return (
             <div className={classes.descriptionBlock}>
-                <img src={props.profile.photos.large || {userPhoto}} alt='large'/>
+                <img src={props.profile.photos.large || userPhoto} alt='large'/>
                 {props.isOwner === props.profile.userId &&
                     <div>
                         <input type={'file'}

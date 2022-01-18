@@ -32,7 +32,7 @@ const LoginForm = ({handleSubmit, error, captchaURL}) => {
                            component={Input}
                            name={'rememberMe'}/> remember me
                 </div>
-                {captchaURL && <img src={captchaURL}/>}
+                {captchaURL && <img src={captchaURL} alt={'captcha'}/>}
                 {captchaURL && <Field placeholder={'captcha'}
                                       validate={[required]}
                                       component={Input}
