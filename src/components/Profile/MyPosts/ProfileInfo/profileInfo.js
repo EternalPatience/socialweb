@@ -29,7 +29,7 @@ function ProfileInfo(props) {
 
     return (
             <div className={classes.descriptionBlock}>
-                <img src={props.profile.photos.large || userPhoto} alt='large'/>
+                <img className={classes.largeImage} src={props.profile.photos.large || userPhoto} alt='large'/>
                 {props.isOwner === props.profile.userId &&
                     <div>
                         <input type={'file'}

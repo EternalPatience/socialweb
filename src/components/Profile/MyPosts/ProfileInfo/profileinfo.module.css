@@ -2,6 +2,10 @@
     padding: 10px;
 }
 
+.largeImage {
+    border-radius: 80%;
+}
+
 .contacts {
     margin-left: 10px;
 }
