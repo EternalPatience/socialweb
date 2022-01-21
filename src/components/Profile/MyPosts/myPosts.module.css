@@ -1,7 +1,26 @@
 .postsBlock {
-    padding: 10px;
+    display: flex;
 }
 
 .posts {
-    margin-top: 10px;
+    padding-left: 10px;
+    display: inline-flex;
+}
+
+.posts {
+    padding-left: 50px;
+    display: inline;
+}
+
+.postTextarea {
+    margin-top: 40px
+}
+.postTextarea textarea {
+    width: 300px;
+    height: 150px;
+}
+
+h3 {
+    font-size: 22px;
+    text-align: center;
 }

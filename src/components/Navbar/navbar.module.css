@@ -2,7 +2,10 @@
     grid-area: n;
     background-color: cadetblue;
     padding: 20px;
+    border-radius: 5px;
+    height: auto;
 }
+
 .text {
     grid-area: t;
     font-size: 25px;
@@ -20,12 +23,17 @@
     background-color: cadetblue;
 }
 
-.item {
-    color: white;
+a {
+    font-size: 22px;
     text-decoration: none;
 }
 
-.active {
-    color: gold;
-    text-decoration: none;
+a:visited {
+    color: white;
 }
+
+a:hover {
+    color: gold;
+}
+
+

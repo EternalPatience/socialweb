@@ -16,14 +16,13 @@ const MyPosts = React.memo(props => {
     }
 
     return (
-
         <div className={classes.postsBlock}>
-            <h3>My posts</h3>
-            <AddPostFormRedux onSubmit={onAddPost}/>
-            <div>
-                <div className={classes.posts}>
-                    {postElements}
-                </div>
+            <div className={classes.postTextarea}>
+                <AddPostFormRedux onSubmit={onAddPost}/>
+            </div>
+            <div className={classes.posts}>
+                <h3>My posts</h3>
+                {postElements}
             </div>
         </div>
     )

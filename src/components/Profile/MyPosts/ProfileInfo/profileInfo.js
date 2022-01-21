@@ -49,9 +49,7 @@ function ProfileInfo(props) {
 
 const ProfileData = ({profile, isOwner, setEditMode}) => {
     return (
-        <div>
-            {isOwner === profile.userId &&
-                <div><button onClick={setEditMode}>Edit</button></div>}
+        <div className={classes.profileData}>
             <div>
                 <b>{profile.fullName}</b>
             </div>
@@ -64,18 +62,20 @@ const ProfileData = ({profile, isOwner, setEditMode}) => {
             <div>
                 <b>About me:</b>{profile.aboutMe}
             </div>
-            <div>
+            <div className={classes.contacts}>
                 <b>Contacts: </b> {Object.keys(profile.contacts).map(key => {
                 return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
             })}
             </div>
+            {isOwner === profile.userId &&
+                <div><button onClick={setEditMode}>Edit profile</button></div>}
         </div>
     )
 }
 
 const Contact = ({contactTitle, contactValue}) => {
     return (
-        <div className={classes.contacts}>
+        <div>
             {contactTitle}: {contactValue}
         </div>
     )
